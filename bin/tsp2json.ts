@@ -1,18 +1,16 @@
 import assert from "assert";
 import "core-js/actual/string/replace-all.js";
 export function tsp2json(tsp: string): [number, number][] {
-    const data = tsp
-        .split("\n")
-        .map((d) => {
-            return d
-                .replaceAll("\r", "")
-                .trim()
-                .replaceAll("  ", " ")
-                .replaceAll("  ", " ")
-                .replaceAll("  ", " ")
-                .replaceAll("  ", " ").replace(/\s+/g, ' ')
-        }
-        );
+    const data = tsp.split("\n").map((d) => {
+        return d
+            .replaceAll("\r", "")
+            .trim()
+            .replaceAll("  ", " ")
+            .replaceAll("  ", " ")
+            .replaceAll("  ", " ")
+            .replaceAll("  ", " ")
+            .replace(/\s+/g, " ");
+    });
     // console.log(data);
     //DISPLAY_DATA_SECTION
     //NODE_COORD_SECTION
@@ -45,15 +43,20 @@ export function tsp2json(tsp: string): [number, number][] {
     assert(endline > startline);
     const dataofnodes = data.slice(startline, endline);
     // console.log(dataofnodes);
-    const result: [number, number][] = dataofnodes.filter(Boolean).map((s) => {
-        if (s.length === 0) { return false }
-        const a = s.split(" ");
-        const x = Number(a[1]);
-        const y = Number(a[2]);
-        assert(!Number.isNaN(x), "not number:" + s);
-        assert(!Number.isNaN(y), "not number:" + s);
-        return [x, y];
-    }).filter(Boolean) as [number, number][];
+    const result: [number, number][] = dataofnodes
+        .filter(Boolean)
+        .map((s) => {
+            if (s.length === 0) {
+                return false;
+            }
+            const a = s.split(" ");
+            const x = Number(a[1]);
+            const y = Number(a[2]);
+            assert(!Number.isNaN(x), "not number:" + s);
+            assert(!Number.isNaN(y), "not number:" + s);
+            return [x, y];
+        })
+        .filter(Boolean) as [number, number][];
     // console.log(result);
     return result;
 }
