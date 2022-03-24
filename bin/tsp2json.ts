@@ -35,9 +35,9 @@ export function tsp2json(tsp: string): [number, number][] {
     try {
         assert(endline > 0, "end flag not found");
     } catch (err) {
-        console.warn(err);
+        console.log((err as any)?.message);
         endline = data.length - 1;
-        console.warn("endline set to length");
+        console.log("endline set to length");
     }
 
     assert(endline > startline);
