@@ -1,7 +1,17 @@
 {
+    "files": [
+        "dist/index.cjs.js",
+        "dist/index.es.js",
+        "dist/index.es.d.ts"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
     "name": "@masx200/tsp-lib-test-data",
     "version": "1.0.0",
-    "main": "index.js",
+    "main": "dist/index.cjs.js",
+    "module": "dist/index.es.js",
+    "types": "dist/index.es.d.ts",
     "repository": {
         "type": "git",
         "url": "https://gitee.com/masx200/tsp-lib-test-data"
