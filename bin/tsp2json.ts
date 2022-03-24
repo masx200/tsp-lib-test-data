@@ -47,6 +47,12 @@ export function tsp2json(tsp: string): [number, number][] {
 
     asserttrue(edge_weight_type);
     console.log("edge_weight_type", edge_weight_type);
+    if (
+        not_support_edge_weight_types.includes(edge_weight_type) ||
+        !support_edge_weight_types.includes(edge_weight_type)
+    ) {
+        throw Error("not_support_edge_weight_type:" + edge_weight_type);
+    }
     const dimension_flag = "DIMENSION";
     const dimension_line = data.findIndex((d) => d.includes(dimension_flag));
     assert(dimension_line > 0, "dimension_flag not found");
