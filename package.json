@@ -8,7 +8,7 @@
         "access": "public"
     },
     "name": "@masx200/tsp-lib-test-data",
-    "version": "1.0.3",
+    "version": "1.1.0",
     "main": "dist/index.es.js",
     "module": "dist/index.es.js",
     "types": "dist/index.es.d.ts",
@@ -21,7 +21,7 @@
     "license": "MIT",
     "description": "MP-TESTDATA - The TSPLIB Symmetric Traveling Salesman Problem Instances",
     "scripts": {
-        "prepare-data": "yarn run tsp2json --inputdir=tsp --outputdir=lib",
+        "prepare-data": "yarn run tsp2json --inputdir=tsp --outputdir=lib --emptyoutdir=true",
         "tsp2json": "ts-node --esm  ./bin/cli.ts",
         "test": "jest && node test/test-dist.js",
         "check": "tsc --noEmit",
