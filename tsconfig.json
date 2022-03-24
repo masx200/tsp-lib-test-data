@@ -6,11 +6,7 @@
         "target": "ESNext",
         "useDefineForClassFields": true,
         "module": "ESNext",
-        "lib": [
-            "ESNext",
-            "DOM",
-            "ES2021"
-        ],
+        "lib": ["ESNext", "DOM", "ES2021"],
         "moduleResolution": "Node",
         "strict": true,
         "sourceMap": true,
@@ -22,11 +18,5 @@
         "noImplicitReturns": true,
         "forceConsistentCasingInFileNames": true
     },
-    "include": [
-        "vite.config.ts",
-        "src",
-        "test",
-        "bin",
-        "__tests__"
-    ]
+    "include": ["vite.config.ts", "src", "test", "bin", "__tests__"]
 }
