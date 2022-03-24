@@ -19,4 +19,5 @@ const TSP_cords: Record<string, NodeCoordinates> = {
         })
     ),
 };
+asserttrue(Object.keys(TSP_cords).length);
 export default TSP_cords;
