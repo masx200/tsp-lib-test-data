@@ -8,7 +8,7 @@
         "access": "public"
     },
     "name": "@masx200/tsp-lib-test-data",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "main": "dist/index.es.js",
     "module": "dist/index.es.js",
     "types": "dist/index.es.d.ts",

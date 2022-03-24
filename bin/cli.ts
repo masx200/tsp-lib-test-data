@@ -61,6 +61,7 @@ async function start(inputdir: string, outputdir: string) {
     }
     if (failurefiles.length) {
         console.warn("failurefiles", failurefiles);
+        console.warn(`files ${failurefiles.length} failed`);
     }
     if (successfiles.length === 0) {
         throw new Error("all files failure");

@@ -1,6 +1,11 @@
 import assert from "assert";
 import "core-js/actual/string/replace-all.js";
+//@ts-ignore
+import { assertnumber } from "../test/assertnumber.ts";
+//@ts-ignore
+import { asserttrue } from "../test/asserttrue.ts";
 export function tsp2json(tsp: string): [number, number][] {
+    // 检查DIMENSION
     const data = tsp.split("\n").map((d) => {
         return d
             .replaceAll("\r", "")
@@ -11,6 +16,16 @@ export function tsp2json(tsp: string): [number, number][] {
             .replaceAll("  ", " ")
             .replace(/\s+/g, " ");
     });
+    const dimension_flag = "DIMENSION";
+    const dimension_line = data.findIndex((d) => d.includes(dimension_flag));
+    assert(dimension_line > 0, "dimension_flag not found");
+
+    const dimension_regexp = /DIMENSION\s?:\s?(?<d>\d+)$/;
+    const dimension = Number(
+        dimension_regexp.exec(data[dimension_line])?.groups?.d
+    );
+    assertnumber(dimension);
+    console.log("dimension", dimension);
     // console.log(data);
     //DISPLAY_DATA_SECTION
     //NODE_COORD_SECTION
@@ -57,6 +72,7 @@ export function tsp2json(tsp: string): [number, number][] {
             return [x, y];
         })
         .filter(Boolean) as [number, number][];
+    asserttrue(result.length === dimension, "dimension mismatch");
     // console.log(result);
     return result;
 }
