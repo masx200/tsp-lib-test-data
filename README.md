@@ -2,9 +2,21 @@
 
 #### 介绍
 
+
+把tsp数据库当中的二维坐标转换成类似于JSON的格式输出.
+
+只处理有二维坐标的,其他不处理
+
+
+#### 数据来源
+
 MP-TESTDATA - The TSPLIB Symmetric Traveling Salesman Problem Instances
 
 http://elib.zib.de/pub/mp-testdata/tsp/tsplib/tsp/index.html
+
+另一个数据来源
+
+https://github.com/rhgrant10/tsplib95/tree/master/archives/problems/tsp
 
 TSP 的已知最优解
 
