@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "declaration": false,
+        "declaration": true,
         "skipLibCheck": true,
         "skipDefaultLibCheck": true,
         "target": "ESNext",

@@ -17,11 +17,15 @@ const TSP_cords: Record<string, () => Promise<NodeCoordinates>> =
                 .slice(0, key.lastIndexOf("."))
                 .slice(key.lastIndexOf("/") + 1);
             asserttrue(name.length > 0);
-            const getcoordinates: () => Promise<NodeCoordinates> = Reflect.get(value, 'default') as () => Promise<NodeCoordinates>
-            asserttrue(typeof getcoordinates === 'function')
+            const getcoordinates = () => {
+                return value().then((m) => {
+                    return Reflect.get(m, "default");
+                });
+            };
+            // asserttrue(typeof getcoordinates === "function");
             return [name, getcoordinates];
         })
-    )
+    );
 // };
 asserttrue(Object.keys(TSP_cords).length);
 export default TSP_cords;
