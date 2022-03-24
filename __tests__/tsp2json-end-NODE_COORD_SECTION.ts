@@ -1,6 +1,6 @@
 import { tsp2json } from "../bin/tsp2json";
 
-it("tsp2json-end", () => {
+it("tsp2json-end-NODE_COORD_SECTION", () => {
     console.log("tsp2json-end");
     const input = `���ƣ�gr137
 ���ͣ�TSP

@@ -1,6 +1,6 @@
 import { tsp2json } from "../bin/tsp2json";
 
-it("tsp2json-eof", () => {
+it("tsp2json-eof-NODE_COORD_SECTION", () => {
     console.log("tsp2json-eof");
     const input = `NAME : a280
 COMMENT : drilling problem (Ludwig)
