@@ -53,6 +53,7 @@ async function start(inputdir: string, outputdir: string) {
             // console.log(json);
             successfiles.push(file);
         } catch (e) {
+            console.error("error in file:" + file);
             console.error(e);
 
             failurefiles.push(file);

@@ -25,7 +25,7 @@ export function tsp2json(tsp: string): [number, number][] {
             // data.findIndex((d) => d.includes("DISPLAY_DATA_SECTION")),
             // data.findIndex((d) => d.includes("NODE_COORD_SECTION"))
         ) + 1;
-    const endline = Math.max(
+    let endline = Math.max(
         ...endflags.map((flag) => {
             return data.findIndex((d) => d.includes(flag));
         })
@@ -33,7 +33,14 @@ export function tsp2json(tsp: string): [number, number][] {
         // data.findIndex((d) => d.includes("END"))
     );
     assert(startline > 0, "start flag not found");
-    assert(endline > 0, "end flag not found");
+    try {
+        assert(endline > 0, "end flag not found");
+    } catch (err) {
+        console.warn(err);
+        endline = data.length - 1;
+        console.warn("endline set to length");
+    }
+
     assert(endline > startline);
     const dataofnodes = data.slice(startline, endline);
     // console.log(dataofnodes);
@@ -41,8 +48,8 @@ export function tsp2json(tsp: string): [number, number][] {
         const a = s.split(" ");
         const x = Number(a[1]);
         const y = Number(a[2]);
-        assert(!Number.isNaN(x));
-        assert(!Number.isNaN(y));
+        assert(!Number.isNaN(x), "not number:" + x);
+        assert(!Number.isNaN(y), "not number:" + y);
         return [x, y];
     });
     // console.log(result);
