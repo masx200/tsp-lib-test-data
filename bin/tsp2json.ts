@@ -48,8 +48,8 @@ export function tsp2json(tsp: string): [number, number][] {
         const a = s.split(" ");
         const x = Number(a[1]);
         const y = Number(a[2]);
-        assert(!Number.isNaN(x), "not number:" + x);
-        assert(!Number.isNaN(y), "not number:" + y);
+        assert(!Number.isNaN(x), "not number:" + s);
+        assert(!Number.isNaN(y), "not number:" + s);
         return [x, y];
     });
     // console.log(result);
