@@ -24,7 +24,7 @@
         "tsp2json": "ts-node --esm  ./bin/cli.ts",
         "test": "jest",
         "check": "tsc --noEmit",
-        "build": "npm run prepare-data && tsc --noEmit && vite build",
+        "build": "npm run check && npm run prepare-data  && vite build",
         "format": "prettier --write *.json *.ts   */*.ts  *.md *.cjs "
     },
     "keywords": [],

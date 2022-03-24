@@ -37,17 +37,33 @@ async function start(inputdir: string, outputdir: string) {
 
     //.then((files) => {
     console.log("文件列表", files);
-
+    const successfiles: string[] = [];
+    const failurefiles: string[] = [];
     for (let file of files) {
-        const basename = path.basename(file, ".tsp");
-        const tsp = (await fsextra.readFile(file)).toString();
-        console.log("读取文件", file);
-        const json = tsp2json(tsp);
+        try {
+            const basename = path.basename(file, ".tsp");
+            const tsp = (await fsextra.readFile(file)).toString();
+            console.log("读取文件", file);
+            const json = tsp2json(tsp);
 
-        const outputfile = path.join(outputdir, basename + ".json");
+            const outputfile = path.join(outputdir, basename + ".json");
 
-        await fsextra.writeJSON(outputfile, json);
-        console.log("写入文件", outputfile);
-        console.log(json);
+            await fsextra.writeJSON(outputfile, json);
+            console.log("写入文件", outputfile);
+            // console.log(json);
+            successfiles.push(file);
+        } catch (e) {
+            console.error(e);
+
+            failurefiles.push(file);
+        }
+    }
+    if (failurefiles.length) {
+        console.warn("failurefiles", failurefiles);
+    }
+    if (successfiles.length === 0) {
+        throw new Error("all files failure");
+    } else {
+        console.log("successfiles", successfiles);
     }
 }

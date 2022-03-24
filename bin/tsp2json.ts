@@ -13,14 +13,27 @@ export function tsp2json(tsp: string): [number, number][] {
                 .replaceAll("  ", " ")
         );
     // console.log(data);
+    //DISPLAY_DATA_SECTION
+    //NODE_COORD_SECTION
+    const startflags = ["DISPLAY_DATA_SECTION", "NODE_COORD_SECTION"];
+    const endflags = ["EOF", "END"];
     const startline =
-        data.findIndex((d) => d.includes("NODE_COORD_SECTION")) + 1;
+        Math.max(
+            ...startflags.map((flag) => {
+                return data.findIndex((d) => d.includes(flag));
+            })
+            // data.findIndex((d) => d.includes("DISPLAY_DATA_SECTION")),
+            // data.findIndex((d) => d.includes("NODE_COORD_SECTION"))
+        ) + 1;
     const endline = Math.max(
-        data.findIndex((d) => d.includes("EOF")),
-        data.findIndex((d) => d.includes("END"))
+        ...endflags.map((flag) => {
+            return data.findIndex((d) => d.includes(flag));
+        })
+        // data.findIndex((d) => d.includes("EOF")),
+        // data.findIndex((d) => d.includes("END"))
     );
-    assert(startline > 0);
-    assert(endline > 0);
+    assert(startline > 0, "start flag not found");
+    assert(endline > 0, "end flag not found");
     assert(endline > startline);
     const dataofnodes = data.slice(startline, endline);
     // console.log(dataofnodes);
