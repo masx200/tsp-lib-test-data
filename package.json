@@ -1,0 +1,16 @@
+{
+  "name": "@masx200/tsp-lib-test-data",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/masx200/tsp-lib-test-data"
+  },
+  "author": "masx200 <34191203+masx200@users.noreply.github.com>",
+  "license": "MIT",
+  "description": "MP-TESTDATA - The TSPLIB Symmetric Traveling Salesman Problem Instances",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": []
+}
