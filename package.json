@@ -16,15 +16,16 @@
         "type": "git",
         "url": "https://gitee.com/masx200/tsp-lib-test-data"
     },
+    "type": "module",
     "author": "masx200 <34191203+masx200@users.noreply.github.com>",
     "license": "MIT",
     "description": "MP-TESTDATA - The TSPLIB Symmetric Traveling Salesman Problem Instances",
     "scripts": {
-        "prepare-data": "npm run tsp2json --inputdir=tsp --outputdir=lib",
+        "prepare-data": "yarn run tsp2json --inputdir=tsp --outputdir=lib",
         "tsp2json": "ts-node --esm  ./bin/cli.ts",
         "test": "jest",
         "check": "tsc --noEmit",
-        "build": "npm run check && npm run prepare-data  && vite build",
+        "build": "npm run check && yarn run prepare-data  && vite build",
         "format": "prettier --write *.json *.ts   */*.ts  *.md *.cjs "
     },
     "keywords": [],

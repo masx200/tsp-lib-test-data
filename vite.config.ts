@@ -42,6 +42,7 @@ export default defineConfig(({ mode, command }) => {
             getBabelOutputPlugin({
                 // presets: ["babel-preset-minify"],
                 // extensions: [".ts", ".js"],
+                //@ts-ignore
                 plugins: [
                     isdrop && "babel-plugin-clean-code",
                     // "@babel/plugin-syntax-typescript",
