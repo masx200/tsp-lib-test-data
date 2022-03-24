@@ -1,6 +1,5 @@
 {
     "files": [
-        "dist/index.cjs.js",
         "dist/index.es.js",
         "dist/index.es.d.ts"
     ],
@@ -9,7 +8,7 @@
     },
     "name": "@masx200/tsp-lib-test-data",
     "version": "1.0.0",
-    "main": "dist/index.cjs.js",
+    "main": "dist/index.es.js",
     "module": "dist/index.es.js",
     "types": "dist/index.es.d.ts",
     "repository": {

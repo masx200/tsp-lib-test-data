@@ -53,7 +53,7 @@ export default defineConfig(({ mode, command }) => {
         build: {
             lib: {
                 entry: path.resolve(__dirname, "src", "index.ts"),
-                formats: ["es", "cjs"],
+                formats: ["es"],
                 fileName: "index",
             },
             minify: false,
