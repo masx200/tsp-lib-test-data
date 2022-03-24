@@ -20,10 +20,11 @@
     "license": "MIT",
     "description": "MP-TESTDATA - The TSPLIB Symmetric Traveling Salesman Problem Instances",
     "scripts": {
+        "prepare-data": "npm run tsp2json --inputdir=tsp --outputdir=lib",
         "tsp2json": "ts-node --esm  ./bin/cli.ts",
         "test": "jest",
         "check": "tsc --noEmit",
-        "build": "tsc --noEmit && vite build",
+        "build": "npm run prepare-data && tsc --noEmit && vite build",
         "format": "prettier --write *.json *.ts   */*.ts  *.md *.cjs "
     },
     "keywords": [],
