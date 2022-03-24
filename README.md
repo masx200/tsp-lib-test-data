@@ -22,9 +22,11 @@ yarn add "@masx200/tsp-lib-test-data"
 
 #### 使用说明
 
+1.getNodeCoordinates
+
 ```js
-import tsp_lib from "@masx200/tsp-lib-test-data";
-const a280 = await tsp_lib.a280();
+import { getNodeCoordinates } from "@masx200/tsp-lib-test-data";
+const a280 = await getNodeCoordinates("a280");
 console.log(a280);
 ```
 
@@ -311,6 +313,120 @@ console.log(a280);
     [260, 129],
     [280, 133]
 ]
+```
+
+2.getNames
+
+```js
+import { getNames } from "@masx200/tsp-lib-test-data";
+
+console.log(getNames());
+```
+
+```json
+[
+    "kroA100",
+    "kroB100",
+    "kroC100",
+    "kroD100",
+    "kroE100",
+    "rd100",
+    "dsj1000",
+    "pr1002",
+    "eil101",
+    "lin105",
+    "gr120",
+    "pr124",
+    "bier127",
+    "d1291",
+    "ch130",
+    "rl1304",
+    "rl1323",
+    "usa13509",
+    "pr136",
+    "gr137",
+    "nrw1379",
+    "burma14",
+    "fl1400",
+    "brd14051",
+    "u1432",
+    "pr144",
+    "ch150",
+    "kroA150",
+    "kroB150",
+    "pr152",
+    "fl1577",
+    "u159",
+    "ulysses16",
+    "d1655",
+    "vm1748",
+    "u1817",
+    "d18512",
+    "rl1889",
+    "rat195",
+    "d198",
+    "kroA200",
+    "kroB200",
+    "gr202",
+    "d2103",
+    "u2152",
+    "ulysses22",
+    "ts225",
+    "tsp225",
+    "pr226",
+    "gr229",
+    "u2319",
+    "pr2392",
+    "gil262",
+    "pr264",
+    "a280",
+    "bayg29",
+    "bays29",
+    "pr299",
+    "pcb3038",
+    "lin318",
+    "linhp318",
+    "pla33810",
+    "fl3795",
+    "rd400",
+    "fl417",
+    "dantzig42",
+    "gr431",
+    "pr439",
+    "pcb442",
+    "fnl4461",
+    "att48",
+    "d493",
+    "eil51",
+    "berlin52",
+    "att532",
+    "ali535",
+    "pa561",
+    "u574",
+    "rat575",
+    "rl5915",
+    "rl5934",
+    "p654",
+    "d657",
+    "gr666",
+    "st70",
+    "u724",
+    "pla7397",
+    "eil76",
+    "pr76",
+    "rat783",
+    "pla85900",
+    "gr96",
+    "rat99"
+]
+```
+
+3.getDimension
+
+```js
+import { getDimension } from "@masx200/tsp-lib-test-data";
+
+console.log(getDimension("a280") === 280);
 ```
 
 #### 参与贡献

@@ -5,6 +5,8 @@ import fsextra from "fs-extra";
 import path from "path";
 import process from "process";
 //@ts-ignore
+import { assertIsArray } from "../test/assertIsArray.ts";
+//@ts-ignore
 import { findfiles } from "./findfiles.ts";
 //@ts-ignore
 import { tsp2json } from "./tsp2json.ts";
@@ -39,15 +41,20 @@ async function start(inputdir: string, outputdir: string) {
     console.log("文件列表", files);
     const successfiles: string[] = [];
     const failurefiles: string[] = [];
+    // await fsextra.emptyDir(outputdir)
     for (let file of files) {
         try {
             const basename = path.basename(file, ".tsp");
             const tsp = (await fsextra.readFile(file)).toString();
             console.log("读取文件", file);
             const json = tsp2json(tsp);
-
-            const outputfile = path.join(outputdir, basename + ".json");
-
+            assertIsArray(json);
+            const outputfile = path.join(
+                outputdir,
+                String(json.length),
+                basename + ".json"
+            );
+            await fsextra.ensureDir(path.join(outputdir, String(json.length)));
             await fsextra.writeJSON(outputfile, json);
             console.log("写入文件", outputfile);
             // console.log(json);

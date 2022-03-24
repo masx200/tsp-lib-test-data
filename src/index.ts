@@ -1,6 +1,8 @@
+import "core-js/actual/array/at.js";
+import { assertnumber } from "../test/assertnumber";
 import { asserttrue } from "../test/asserttrue";
 
-const modules = import.meta.glob("../lib/*.json");
+const modules = import.meta.glob("../lib/*/*.json");
 export type NodeCoordinates = Array<[number, number]>;
 // console.log(modules);
 const TSP_cords: Record<string, () => Promise<NodeCoordinates>> =
@@ -28,4 +30,33 @@ const TSP_cords: Record<string, () => Promise<NodeCoordinates>> =
     );
 // };
 asserttrue(Object.keys(TSP_cords).length);
-export default TSP_cords;
+// export default TSP_cords;
+export function getNodeCoordinates(name: string): Promise<NodeCoordinates> {
+    const getcoordinates = TSP_cords[name];
+    if (getcoordinates) {
+        return getcoordinates();
+    } else {
+        throw Error("not found " + name);
+    }
+}
+const nametodimention = new Map<string, number>(
+    Object.keys(modules).map((name) => {
+        const dimension = Number(name.split("/").at(-2));
+        assertnumber(dimension);
+        const nameformat = name
+            .slice(0, name.lastIndexOf("."))
+            .slice(name.lastIndexOf("/") + 1);
+        return [nameformat, dimension];
+    })
+);
+export function getDimension(name: string): number {
+    const dimension = nametodimention.get(name);
+    if (dimension) {
+        return dimension;
+    } else {
+        throw Error("not found: " + name);
+    }
+}
+export function getNames() {
+    return Object.keys(TSP_cords);
+}
