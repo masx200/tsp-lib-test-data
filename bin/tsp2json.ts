@@ -17,8 +17,9 @@ export function tsp2json(tsp: string): [number, number][] {
     });
 
     const not_support_edge_weight_types = [
+        "EXPLICIT",
         "GEO",
-        "ATT",
+
         "XRAY1",
         "XRAY2",
         "EUC_3D",
@@ -29,7 +30,7 @@ export function tsp2json(tsp: string): [number, number][] {
         "MAX_2D",
         "EUC_2D",
         "CEIL_2D",
-        "EXPLICIT",
+        "ATT",
         "MAN_2D",
     ];
 
