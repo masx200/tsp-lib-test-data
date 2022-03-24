@@ -5,7 +5,6 @@ import { assertnumber } from "../test/assertnumber.ts";
 //@ts-ignore
 import { asserttrue } from "../test/asserttrue.ts";
 export function tsp2json(tsp: string): [number, number][] {
-    // 检查DIMENSION
     const data = tsp.split("\n").map((d) => {
         return d
             .replaceAll("\r", "")
@@ -16,6 +15,38 @@ export function tsp2json(tsp: string): [number, number][] {
             .replaceAll("  ", " ")
             .replace(/\s+/g, " ");
     });
+
+    const not_support_edge_weight_types = [
+        "GEO",
+        "ATT",
+        "XRAY1",
+        "XRAY2",
+        "EUC_3D",
+        "MAN_3D",
+        "MAX_3D",
+    ];
+    const support_edge_weight_types = [
+        "MAX_2D",
+        "EUC_2D",
+        "CEIL_2D",
+        "EXPLICIT",
+        "MAN_2D",
+    ];
+
+    //获取EDGE_WEIGHT_TYPE
+    const edge_weight_type_flag = "EDGE_WEIGHT_TYPE";
+    const edge_weight_type_regexp = /EDGE_WEIGHT_TYPE\s?:\s?(?<d>\S+)$/;
+    const edge_weight_type_line = data.findIndex((d) =>
+        d.includes(edge_weight_type_flag)
+    );
+    assert(edge_weight_type_line > 0, "edge_weight_type_flag not found");
+    // 检查DIMENSION
+    const edge_weight_type = String(
+        edge_weight_type_regexp.exec(data[edge_weight_type_line])?.groups?.d
+    );
+
+    asserttrue(edge_weight_type);
+    console.log("edge_weight_type", edge_weight_type);
     const dimension_flag = "DIMENSION";
     const dimension_line = data.findIndex((d) => d.includes(dimension_flag));
     assert(dimension_line > 0, "dimension_flag not found");
