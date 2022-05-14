@@ -1701,7 +1701,6 @@ EOF
     //     [34, 491],
     // ];
     assertshouldcatcherror(() => {
-        (tsp2json(input));
+        tsp2json(input);
     }, "not_support_edge_weight_type:EXPLICIT");
-
 });
