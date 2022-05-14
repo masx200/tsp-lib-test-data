@@ -54,7 +54,7 @@
         "combinatorial-generators": "^1.0.1",
         "core-js": "^3.21.1",
         "find": "^0.3.0",
-        "fs-extra": "^8.1.0",
+        "fs-extra": "^10.1.0",
         "jest": "^27.5.1",
         "lodash": "^4.17.21",
         "lodash-es": "^4.17.21",
