@@ -1,8 +1,8 @@
 {
     "files": [
         "dist",
-        "dist/index.es.js",
-        "dist/index.es.d.ts"
+        "dist/index.js",
+        "dist/index.d.ts"
     ],
     "publishConfig": {
         "access": "public"

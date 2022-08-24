@@ -1,6 +1,6 @@
 import { tsp2json } from "../bin/tsp2json";
 import { assertshouldcatcherror } from "../test/assertshouldcatcherror";
-
+import { it as it } from "vitest";
 it("tsp2json-eof-DISPLAY_DATA_SECTION", () => {
     // console.log("tsp2json-end");
     const input = `NAME : pa561.tsp

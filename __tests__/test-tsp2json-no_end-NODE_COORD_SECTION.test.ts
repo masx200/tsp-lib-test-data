@@ -1,5 +1,5 @@
 import { tsp2json } from "../bin/tsp2json";
-
+import { expect, it as it } from "vitest";
 it("test-tsp2json-no_end-NODE_COORD_SECTION", () => {
     // console.log("tsp2json-eof");
     const input = `NAME : pr1002
