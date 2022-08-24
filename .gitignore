@@ -116,3 +116,4 @@ dist
 .pnp.*
 .yarn/releases/yarn-stable-temp.cjs
 yarn.lock
+.vscode/settings.json

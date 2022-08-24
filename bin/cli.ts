@@ -22,9 +22,10 @@ console.log(
 const extension = "tsp";
 const args = process.argv.slice(2);
 const opts = parse(args);
-
+console.log(args);
 console.log(opts);
 const { inputdir, outputdir, emptyoutdir } = opts;
+const max_scale = opts["max-scale"];
 assert(typeof inputdir === "string", "arugments inputdir should not empty");
 assert(typeof outputdir === "string", "arugments outputdir should not empty");
 
@@ -76,7 +77,10 @@ async function processonefile({
         const tsp = (await fsextra.readFile(file)).toString();
         console.log("读取文件", file);
         const json = tsp2json(tsp);
+
         assertIsArray(json);
+
+        if (max_scale && json.length > Number(max_scale)) return;
         const outputfile = path.join(
             outputdir,
             String(json.length),

@@ -21,6 +21,7 @@ const TSP_cords: Record<string, () => Promise<NodeCoordinates>> =
             asserttrue(name.length > 0);
             const getcoordinates = () => {
                 return value().then((m) => {
+                    //@ts-ignore
                     return Reflect.get(m, "default");
                 });
             };
