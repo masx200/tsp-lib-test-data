@@ -21,11 +21,11 @@
     "license": "MIT",
     "description": "MP-TESTDATA - The TSPLIB Symmetric Traveling Salesman Problem Instances",
     "scripts": {
-        "prepare-data": "yarn run tsp2json --inputdir=tsp --outputdir=lib --emptyoutdir=true",
+        "prepare-data": "npm run tsp2json --inputdir=tsp --outputdir=lib --emptyoutdir=true",
         "tsp2json": "ts-node --esm  ./bin/cli.ts",
         "test": "vitest run",
         "check": "tsc --noEmit",
-        "build": " yarn run prepare-data  && vite build",
+        "build": " npm run prepare-data  && vite build",
         "format": "prettier --write *.json *.ts   */*.ts  *.md *.cjs "
     },
     "keywords": [],
