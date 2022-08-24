@@ -1,4 +1,5 @@
 {
+    "version": "2.0.0",
     "files": [
         "dist",
         "dist/index.js",
@@ -8,7 +9,6 @@
         "access": "public"
     },
     "name": "@masx200/tsp-lib-test-data",
-    "version": "2.0.0",
     "main": "dist/index.es.js",
     "module": "dist/index.es.js",
     "types": "dist/index.es.d.ts",
