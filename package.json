@@ -1,5 +1,5 @@
 {
-    "version": "2.0.0",
+    "version": "2.0.1",
     "files": [
         "lib",
         "tsp",
@@ -12,9 +12,9 @@
         "registry": "https://registry.npmjs.org/"
     },
     "name": "@masx200/tsp-lib-test-data",
-    "main": "dist/index.es.js",
-    "module": "dist/index.es.js",
-    "types": "dist/index.es.d.ts",
+    "main": "dist/index.js",
+    "module": "dist/index.js",
+    "types": "dist/index.d.ts",
     "repository": {
         "type": "git",
         "url": "https://gitee.com/masx200/tsp-lib-test-data"
