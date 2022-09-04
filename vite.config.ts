@@ -2,10 +2,10 @@ import { getBabelOutputPlugin } from "@rollup/plugin-babel";
 import path from "path";
 import { terser } from "rollup-plugin-terser";
 import { MinifyOptions } from "terser";
-import { defineConfig, UserConfig } from "vite";
+import { defineConfig, PluginOption, UserConfig } from "vite";
 import ts from "rollup-plugin-ts";
 export default defineConfig(({ mode, command }) => {
-    console.log(mode, command);
+    // console.log(mode, command);
     const isdrop = mode === "production" && command === "build";
     const terserOptions: MinifyOptions = {
         format: { comments: false },
@@ -18,7 +18,7 @@ export default defineConfig(({ mode, command }) => {
     const config: UserConfig = {
         esbuild: false,
         // esbuild: { drop: isdrop ? ["console", "debugger"] : undefined },
-        root: path.resolve(__dirname, "src"),
+        root: mode === "test" ? __dirname : path.resolve(__dirname, "src"),
         plugins: [
             ts({ transpiler: "typescript" }),
             // mode === "production" &&
@@ -49,7 +49,7 @@ export default defineConfig(({ mode, command }) => {
                 ].filter(Boolean),
             }),
             terser(terserOptions),
-        ].filter(Boolean),
+        ] as PluginOption[],
         build: {
             lib: {
                 entry: path.resolve(__dirname, "src", "index.ts"),

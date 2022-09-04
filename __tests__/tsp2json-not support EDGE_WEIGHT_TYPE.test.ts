@@ -1,6 +1,6 @@
 import { tsp2json } from "../bin/tsp2json";
 import { assertshouldcatcherror } from "../test/assertshouldcatcherror";
-
+import { it as it } from "vitest";
 it("tsp2json-not support EDGE_WEIGHT_TYPE", () => {
     // console.log("tsp2json-end");
     const input = `NAME: gr137

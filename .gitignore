@@ -114,5 +114,11 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
 .yarn/releases/yarn-stable-temp.cjs
 yarn.lock
+
+.yarn/releases/yarn-stable-temp.cjs
+yarn.lock
+.vscode/settings.json
+
